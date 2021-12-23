@@ -1,2 +1,2 @@
 # DummyChess
-collab with @willowred
+collab with [@willow-red](https://github.com/willow-red)
