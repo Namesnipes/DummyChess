@@ -1,6 +1,5 @@
 //code
 
-
 function createPiece(pieceName,x,y){
   var img = new Image()
   img.src = "assets/" + pieceName + ".png"
@@ -11,6 +10,7 @@ function createPiece(pieceName,x,y){
   img.style.position = "absolute";
   img.style.left = pixelsLeft + "px";
   img.style.top = pixelsDown + "px"
+  img.style.cursor = "grab";
   document.getElementById('chessBoard').appendChild(img);
   img.addEventListener('dragstart',dragStart)
   elmnt = img;
@@ -30,7 +30,7 @@ document.addEventListener('drop',onDrop)
 
 function dragStart(e){
   console.log('dragging')
-  console.log(e)
+
   elmnt = e.target
   startX = e.clientX
   startY = e.clientY
@@ -39,7 +39,6 @@ function dragStart(e){
 function onDrop(e){
   e.preventDefault()
   console.log('dropped')
-  console.log(e)
 
   finalX = e.clientX
   finalY = e.clientY
