@@ -96,7 +96,7 @@ function dragElement(elmnt) {
   }
 }
 */
-
+//idk how to work git desktop
 
 for(var i = 0; i<8; i++){
   createPiece("pawn",i,1)
