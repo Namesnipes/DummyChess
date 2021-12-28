@@ -97,6 +97,8 @@ function dragElement(elmnt) {
 }
 */
 //idk how to work git desktop
+// me neither lmfao?
+
 
 for(var i = 0; i<8; i++){
   createPiece("pawn",i,1)
