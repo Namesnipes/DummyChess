@@ -14,17 +14,16 @@
   height: 650px;
   border: 3px solid black;
   z-index: 1;
-  background-image: url("assets/window1.png");
+  background-image: url("assets/window2.png");
   background-size: 100%;
 }
 
 #chessBoard{
   position: absolute;
-  margin-left: 50px;
-  margin-top: calc(650px - 523px - 50px);
+  margin-left: 30px;
+  margin-top: calc(650px - 523px - 30px);
   width: 523px;
   height: 521px;
-  border: 2px solid black;
   background-image: url("assets/board2.png");
   background-size: 100%;
 }
