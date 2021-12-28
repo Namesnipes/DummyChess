@@ -3,8 +3,8 @@
 function createPiece(pieceName,x,y){
   var img = new Image()
   img.src = "assets/" + pieceName + ".png"
-  img.setAttribute("width","50")
-  img.setAttribute("height","50")
+  img.setAttribute("width","39")
+  img.setAttribute("height","63")
   var pixelsLeft = x * 50
   var pixelsDown = y * 50
   img.style.position = "absolute";
@@ -12,11 +12,12 @@ function createPiece(pieceName,x,y){
   img.style.top = pixelsDown + "px"
   img.style.cursor = "grab";
   document.getElementById('chessBoard').appendChild(img);
-  img.addEventListener('dragstart',dragStart)
+  //img.addEventListener('dragstart',dragStart)
   elmnt = img;
-  //dragElement(img)
+  dragElement(img)
 }
 
+/*
 var startX = 0
 var startY = 0
 var finalX= 0
@@ -50,9 +51,10 @@ function onDrop(e){
   elmnt.style.left = (elmnt.offsetLeft + x) + "px";
 }
 
+*/
 
 
-/*
+
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   if (document.getElementById(elmnt.id + "header")) {
@@ -95,11 +97,11 @@ function dragElement(elmnt) {
     document.onmousemove = null;
   }
 }
-*/
+
 //idk how to work git desktop
 // me neither lmfao?
 
 
 for(var i = 0; i<8; i++){
-  createPiece("pawn",i,1)
+  createPiece("whitePawn",i,6)
 }
