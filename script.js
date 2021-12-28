@@ -5,8 +5,10 @@ function createPiece(pieceName,x,y){
   img.src = "assets/" + pieceName + ".png"
   img.setAttribute("width","39")
   img.setAttribute("height","63")
-  var pixelsLeft = x * 50
-  var pixelsDown = y * 50
+  var leftMargin = 8
+  var topMargin = 8
+  var pixelsLeft = leftMargin + ((63.5-39)/2) + (x * 63.5) // i hate this someone please tell me how to scale this correctly
+  var pixelsDown = topMargin + y * 63.5
   img.style.position = "absolute";
   img.style.left = pixelsLeft + "px";
   img.style.top = pixelsDown + "px"

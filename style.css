@@ -20,8 +20,8 @@
 
 #chessBoard{
   position: absolute;
-  margin-left: calc((100% - 523px) / 2);
-  margin-top: calc((650px - 521px) / 2);
+  margin-left: 50px;
+  margin-top: calc(650px - 523px - 50px);
   width: 523px;
   height: 521px;
   border: 2px solid black;
