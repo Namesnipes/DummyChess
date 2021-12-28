@@ -96,6 +96,7 @@ function dragElement(elmnt) {
 
   function closeDragElement() {
     // stop moving when mouse button is released:
+    document.getElementById("dropPiece").play()
     elmnt.style.cursor = "grab";
     document.onmouseup = null;
     document.onmousemove = null;

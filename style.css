@@ -20,11 +20,11 @@
 
 #chessBoard{
   position: absolute;
-  margin-left: 250px;
-  margin-top: 125px;
-  width: 400px;
-  height: 400px;
+  margin-left: calc((100% - 523px) / 2);
+  margin-top: calc((650px - 521px) / 2);
+  width: 523px;
+  height: 521px;
   border: 2px solid black;
-  background-image: url("assets/board.png");
+  background-image: url("assets/board2.png");
   background-size: 100%;
 }
