@@ -17,6 +17,8 @@ function createPiece(pieceName,x,y){
   dragElement(img)
 }
 
+var elmnt;
+
 /*
 var startX = 0
 var startY = 0
@@ -69,6 +71,7 @@ function dragElement(elmnt) {
     console.log('ok ')
     e = e || window.event;
     e.preventDefault();
+    elmnt.style.cursor = "grabbing";
     // get the mouse cursor position at startup:
     pos3 = e.clientX;
     pos4 = e.clientY;
@@ -93,6 +96,7 @@ function dragElement(elmnt) {
 
   function closeDragElement() {
     // stop moving when mouse button is released:
+    elmnt.style.cursor = "grab";
     document.onmouseup = null;
     document.onmousemove = null;
   }
