@@ -17,7 +17,6 @@ function createPiece(pieceName,x,y){
   img.style['user-select'] = "none"
   document.getElementById('chessBoard').appendChild(img);
   //img.addEventListener('dragstart',dragStart)
-  elmnt = img;
   dragElement(img)
 }
 
@@ -63,37 +62,47 @@ function onDrop(e){
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  if (document.getElementById(elmnt.id + "header")) {
-    // if present, the header is where you move the DIV from:
-    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-  } else {
-    /// otherwise, move the DIV from anywhere inside the DIV:
-    elmnt.onmousedown = dragMouseDown;
-  }
+  elmnt.ontouchstart = dragMouseDown;
+  elmnt.onmousedown = dragMouseDown;
+}
 
   function dragMouseDown(e) {
-    console.log('ok ')
+    elmnt = e.target
     e = e || window.event;
     e.preventDefault();
     elmnt.style.cursor = "grabbing";
     // get the mouse cursor position at startup:
-    pos3 = e.clientX;
-    pos4 = e.clientY;
+    if(e.type == "touchstart"){
+      pos3 = e.touches[0].clientX;
+      pos4 = e.touches[0].clientY;
+    } else {
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+    }
+
+    //desktop events
     document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
     document.onmousemove = elementDrag;
-    console.log('ok')
+
+    //mobile events
+    document.ontouchend= closeDragElement;
+    document.ontouchmove = elementDrag;
   }
 
   function elementDrag(e) {
-    e = e || window.event;
     e.preventDefault();
     // calculate the new cursor position:
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
+    if (e.type == "touchstart") {
+      pos1 = pos3 - e.touches[0].clientX;
+      pos2 = pos4 - e.touches[0].clientY;
+    } else {
+      pos1 = pos3 - e.clientX;
+      pos2 = pos4 - e.clientY;
+    }
+
     pos3 = e.clientX;
     pos4 = e.clientY;
-    // set the element's new position:
+
     elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
     elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
   }
@@ -104,7 +113,8 @@ function dragElement(elmnt) {
     elmnt.style.cursor = "grab";
     document.onmouseup = null;
     document.onmousemove = null;
-  }
+    document.ontouchend = null;
+    document.ontouchmove  = null;
 }
 
 //idk how to work git desktop
