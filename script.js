@@ -64,7 +64,6 @@ function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   elmnt.ontouchstart = dragMouseDown;
   elmnt.onmousedown = dragMouseDown;
-}
 
   function dragMouseDown(e) {
     elmnt = e.target
@@ -75,6 +74,7 @@ function dragElement(elmnt) {
     if(e.type == "touchstart"){
       pos3 = e.touches[0].clientX;
       pos4 = e.touches[0].clientY;
+      console.log("start" + pos3 + " " + pos4)
     } else {
       pos3 = e.clientX;
       pos4 = e.clientY;
@@ -92,16 +92,17 @@ function dragElement(elmnt) {
   function elementDrag(e) {
     e.preventDefault();
     // calculate the new cursor position:
-    if (e.type == "touchstart") {
+    if (e.type === "touchmove") {
       pos1 = pos3 - e.touches[0].clientX;
       pos2 = pos4 - e.touches[0].clientY;
+      pos3 = e.touches[0].clientX;
+      pos4 = e.touches[0].clientY;
     } else {
       pos1 = pos3 - e.clientX;
       pos2 = pos4 - e.clientY;
+      pos3 = e.clientX;
+      pos4 = e.clientY;
     }
-
-    pos3 = e.clientX;
-    pos4 = e.clientY;
 
     elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
     elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
@@ -115,6 +116,7 @@ function dragElement(elmnt) {
     document.onmousemove = null;
     document.ontouchend = null;
     document.ontouchmove  = null;
+    }
 }
 
 //idk how to work git desktop
