@@ -13,6 +13,8 @@ function createPiece(pieceName,x,y){
   img.style.left = pixelsLeft + "px";
   img.style.top = pixelsDown + "px"
   img.style.cursor = "grab";
+  img.style['touch-action'] = "none"
+  img.style['user-select'] = "none"
   document.getElementById('chessBoard').appendChild(img);
   //img.addEventListener('dragstart',dragStart)
   elmnt = img;
